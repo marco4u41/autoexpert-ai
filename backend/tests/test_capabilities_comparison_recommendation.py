@@ -13,7 +13,7 @@ from app.domain.agent.registry import CapabilityRegistry
 from app.domain.models.message import Message, MessageRole
 
 # ---------------------------------------------------------------------------
-# Subfase 5.4 — RecommendationCapability: usage-aware prompts
+# RecommendationCapability: usage-aware prompts
 # ---------------------------------------------------------------------------
 
 class TestRecommendationUsageGuidance:
@@ -123,7 +123,7 @@ class TestRecommendationFollowupWithUsage:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.5 — ComparisonCapability: focus-aware prompts
+# ComparisonCapability: focus-aware prompts
 # ---------------------------------------------------------------------------
 
 class TestComparisonFocusGuidance:
@@ -326,3 +326,4 @@ class TestOrchestratorCapabilityContextFields:
         )
         assert result.intent == Intent.COMPARISON
         assert "ENFOQUE EN" not in result.system_prompt
+

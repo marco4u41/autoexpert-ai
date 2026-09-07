@@ -55,4 +55,4 @@ export const GARAGE_MAX_ITEMS = 10;
 export const MAX_MESSAGE_LENGTH = 2000;
 export const TYPING_INDICATOR_DELAY = 300;
 
-export const GARAGE_STORAGE_KEY = "autobot-garage";
+export const GARAGE_STORAGE_KEY = "autoexpert-garage";

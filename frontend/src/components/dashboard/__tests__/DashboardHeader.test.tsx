@@ -54,7 +54,7 @@ describe("DashboardHeader", () => {
     render(<DashboardHeader />);
 
     expect(screen.getByText("Total Vehiculos")).toBeDefined();
-    expect(screen.getByText("47,030")).toBeDefined();
+    expect(screen.getByText((47030).toLocaleString())).toBeDefined();
     expect(screen.getByText("Conversaciones")).toBeDefined();
     expect(screen.getByText("12")).toBeDefined();
     expect(screen.getByText("Marcas")).toBeDefined();

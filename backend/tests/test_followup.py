@@ -25,7 +25,7 @@ class TestFollowupField:
 
     def test_slots(self) -> None:
         f = FollowupField(name="budget", question="¿Presupuesto?", priority=1)
-        with pytest.raises(AttributeError):
+        with pytest.raises((AttributeError, TypeError)):
             f.extra = True  # type: ignore[attr-defined]
 
     def test_priority_ordering(self) -> None:

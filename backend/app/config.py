@@ -17,6 +17,10 @@ class Settings(BaseSettings):
 
     openrouter_api_key: str = ""
     openrouter_model: str = "nvidia/nemotron-3-ultra-550b-a55b:free"
+    openrouter_fallback_models: list[str] = [
+        "meta-llama/llama-3.3-70b-instruct:free",
+        "google/gemini-2.0-flash-exp:free",
+    ]
     openrouter_base_url: str = "https://openrouter.ai/api/v1"
 
     cors_origins: list[str] = ["http://localhost:5173", "http://localhost:3000"]

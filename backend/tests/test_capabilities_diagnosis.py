@@ -12,7 +12,7 @@ from app.domain.agent.registry import CapabilityRegistry
 from app.domain.models.message import Message, MessageRole
 
 # ---------------------------------------------------------------------------
-# Subfase 5.6 — DiagnosisCapability: automotive data in prompts
+# DiagnosisCapability: automotive data in prompts
 # ---------------------------------------------------------------------------
 
 class TestDiagnosisAutomotiveDataPrompt:
@@ -132,7 +132,7 @@ class TestDiagnosisContextEnrichment:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.6 — Orchestrator: diagnosis with automotive data
+# Orchestrator: diagnosis with automotive data
 # ---------------------------------------------------------------------------
 
 def _orchestrator_with_tool(
@@ -184,3 +184,4 @@ class TestOrchestratorDiagnosisData:
         assert result.intent == Intent.DIAGNOSIS
         assert "DATOS AUTOMOTRICES" not in result.system_prompt
         assert "Modo Diagnóstico" in result.system_prompt
+

@@ -3,9 +3,9 @@ requires = ["setuptools>=75.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "chatbot-backend"
+name = "autoexpert-backend"
 version = "0.1.0"
-description = "Chatbot Automotriz — Backend API"
+description = "AutoExpert AI — Asistente Automotriz Backend API"
 requires-python = ">=3.13"
 dependencies = [
     "fastapi>=0.115.0",

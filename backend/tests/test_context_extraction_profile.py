@@ -11,7 +11,7 @@ from app.domain.models.message import Message, MessageRole
 from app.domain.models.user_profile import UserProfile
 
 # ---------------------------------------------------------------------------
-# Subfase 5.8 — ContextExtractor: preferred brand detection
+# ContextExtractor: preferred brand detection
 # ---------------------------------------------------------------------------
 
 class TestPreferredBrandExtraction:
@@ -118,7 +118,7 @@ class TestPreferredBrandExtraction:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.8 — UserContext preferred_brands field
+# UserContext preferred_brands field
 # ---------------------------------------------------------------------------
 
 class TestUserContextPreferredBrands:
@@ -143,7 +143,7 @@ class TestUserContextPreferredBrands:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.8 — UserProfile preferred_brands field
+# UserProfile preferred_brands field
 # ---------------------------------------------------------------------------
 
 class TestUserProfilePreferredBrands:
@@ -161,7 +161,7 @@ class TestUserProfilePreferredBrands:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.8 — ProfileUpdater merge
+# ProfileUpdater merge
 # ---------------------------------------------------------------------------
 
 class TestProfileUpdaterPreferredBrands:
@@ -190,7 +190,7 @@ class TestProfileUpdaterPreferredBrands:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.8 — ContextManager integration
+# ContextManager integration
 # ---------------------------------------------------------------------------
 
 class TestContextManagerPreferredBrands:
@@ -232,3 +232,4 @@ class TestContextManagerPreferredBrands:
         ctx, _ = await mgr.build_context(messages)
         assert "toyota" in ctx.mentioned_brands
         assert "toyota" in ctx.preferred_brands
+

@@ -9,7 +9,7 @@ from app.domain.models.conversation import Conversation
 from app.domain.models.message import Message, MessageRole
 
 # ---------------------------------------------------------------------------
-# Subfase 5.7 — ConversationMemoryService
+# ConversationMemoryService
 # ---------------------------------------------------------------------------
 
 class TestConversationMemoryService:
@@ -135,7 +135,7 @@ class TestConversationMemoryService:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.7 — Conversation domain model
+# Conversation domain model
 # ---------------------------------------------------------------------------
 
 class TestConversationSummaryField:
@@ -154,7 +154,7 @@ class TestConversationSummaryField:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.7 — ContextManager integration with summaries
+# ContextManager integration with summaries
 # ---------------------------------------------------------------------------
 
 class TestContextManagerSummaries:
@@ -304,3 +304,4 @@ class TestContextManagerSummaries:
         ]
         _ctx, context_block = await mgr.build_context(messages)
         assert "Conversaciones anteriores" not in context_block
+

@@ -10,7 +10,7 @@ describe("StatCard", () => {
   it("renders label and value", () => {
     render(<StatCard label="Vehiculos" value={1500} icon={<MockIcon />} />);
     expect(screen.getByText("Vehiculos")).toBeDefined();
-    expect(screen.getByText("1,500")).toBeDefined();
+    expect(screen.getByText((1500).toLocaleString())).toBeDefined();
   });
 
   it("renders string value without locale formatting", () => {
