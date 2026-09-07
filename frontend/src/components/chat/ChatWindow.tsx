@@ -118,7 +118,7 @@ function EmptyState() {
         </svg>
       </div>
       <h2 className="ax-text-heading text-xl text-ax-text-primary mb-2">
-        Bienvenido a AutoBot
+        Bienvenido a AutoExpert AI
       </h2>
       <p className="text-sm text-ax-text-muted max-w-sm leading-relaxed">
         Compara vehiculos, obtiene diagnosticos mecanicos y recomendaciones

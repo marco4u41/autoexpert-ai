@@ -74,7 +74,7 @@ export function Sidebar({
             </div>
             {!collapsed && (
               <div className="min-w-0 animate-ax-fade-in">
-                <h1 className="ax-text-heading text-sm text-ax-text-primary truncate">AutoBot</h1>
+                <h1 className="ax-text-heading text-sm text-ax-text-primary truncate">AutoExpert AI</h1>
                 <p className="ax-text-label text-ax-text-subtle text-[10px]">
                   Asistente Automotriz
                 </p>

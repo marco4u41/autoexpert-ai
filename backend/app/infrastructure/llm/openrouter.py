@@ -26,8 +26,8 @@ class OpenRouterProvider(LLMProvider):
         return {
             "Authorization": f"Bearer {self._api_key}",
             "Content-Type": "application/json",
-            "HTTP-Referer": "https://autobot.local",
-            "X-Title": "AutoBot Chatbot Automotriz",
+            "HTTP-Referer": "https://autoexpert.local",
+            "X-Title": "AutoExpert AI — Asistente Automotriz",
         }
 
     def _build_messages(

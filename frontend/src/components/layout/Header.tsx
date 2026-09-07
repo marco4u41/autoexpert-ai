@@ -43,7 +43,7 @@ export function Header({ view, onToggleSidebar }: HeaderProps) {
           <div className="flex items-center gap-2">
             <span className="inline-block w-1.5 h-1.5 rounded-full bg-ax-accent-success animate-ax-glow-pulse" aria-hidden="true" />
             <h1 className="ax-text-heading text-sm text-ax-text-primary truncate">
-              {view === "chat" ? "AutoBot" : "Dashboard"}
+              {view === "chat" ? "AutoExpert AI" : "Dashboard"}
             </h1>
           </div>
           <p className="ax-text-label text-ax-text-subtle mt-0.5 hidden sm:block">
