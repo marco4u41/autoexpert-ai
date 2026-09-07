@@ -9,6 +9,7 @@
 ![OpenRouter](https://img.shields.io/badge/OpenRouter-Nemotron--3--Ultra-FF6B35?style=for-the-badge&logo=openai&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Tests](https://img.shields.io/badge/Tests-pytest%20%7C%20Vitest-brightgreen?style=for-the-badge)
+![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
 ![License](https://img.shields.io/badge/License-Academic%20Use-blue?style=for-the-badge)
 
 ---
@@ -142,12 +143,12 @@ Construir un asistente automotriz conversacional *production-ready* que demuestr
 
 ```bash
 # 1. Clonar
-git clone https://github.com/<tu-usuario>/AutoExpert-AI.git
-cd AutoExpert-AI/CHATBOT
+git clone https://github.com/<tu-usuario>/autoexpert-ai.git
+cd autoexpert-ai
 
 # 2. Configurar variables de entorno
-cp backend/.env.example backend/.env
-# Edita backend/.env con tus credenciales (ver sección Variables de Entorno)
+cp .env.example .env
+# Edita .env con tus credenciales (ver sección Variables de Entorno)
 
 # 3. Levantar todo (PostgreSQL + Backend + Frontend)
 docker compose up --build -d
@@ -172,7 +173,7 @@ CREATE DATABASE autoexpert_db;
 
 #### 2. Backend
 ```powershell
-cd CHATBOT/backend
+cd backend
 
 # Entorno virtual
 py -m venv .venv
@@ -192,7 +193,7 @@ python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
 
 #### 3. Frontend (otra terminal)
 ```powershell
-cd CHATBOT/frontend
+cd frontend
 npm install
 npm run dev
 ```
@@ -209,7 +210,7 @@ npm run dev
 
 ## 🔧 Variables de Entorno
 
-### Backend (`CHATBOT/backend/.env`)
+### Backend (`backend/.env`)
 ```env
 # PostgreSQL
 POSTGRES_HOST=localhost
