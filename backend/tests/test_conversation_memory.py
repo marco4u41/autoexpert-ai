@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from unittest.mock import AsyncMock, MagicMock
 
@@ -9,7 +9,7 @@ from app.domain.models.conversation import Conversation
 from app.domain.models.message import Message, MessageRole
 
 # ---------------------------------------------------------------------------
-# Subfase 5.7 — ConversationMemoryService
+# Subfase 5.7 â€” ConversationMemoryService
 # ---------------------------------------------------------------------------
 
 class TestConversationMemoryService:
@@ -135,7 +135,7 @@ class TestConversationMemoryService:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.7 — Conversation domain model
+# Subfase 5.7 â€” Conversation domain model
 # ---------------------------------------------------------------------------
 
 class TestConversationSummaryField:
@@ -144,8 +144,8 @@ class TestConversationSummaryField:
         assert conv.summary == ""
 
     def test_summary_settable(self) -> None:
-        conv = Conversation(title="test", summary="Vehículos: Toyota Corolla")
-        assert conv.summary == "Vehículos: Toyota Corolla"
+        conv = Conversation(title="test", summary="VehÃ­culos: Toyota Corolla")
+        assert conv.summary == "VehÃ­culos: Toyota Corolla"
 
     def test_summary_persists_through_touch(self) -> None:
         conv = Conversation(title="test", summary="data")
@@ -154,7 +154,7 @@ class TestConversationSummaryField:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.7 — ContextManager integration with summaries
+# Subfase 5.7 â€” ContextManager integration with summaries
 # ---------------------------------------------------------------------------
 
 class TestContextManagerSummaries:
@@ -162,7 +162,7 @@ class TestContextManagerSummaries:
     async def test_build_context_loads_recent_summaries(self) -> None:
         from app.domain.agent.context.manager import ContextManager
 
-        conv1 = Conversation(title="conv1", summary="Vehículos: Honda Civic")
+        conv1 = Conversation(title="conv1", summary="VehÃ­culos: Honda Civic")
         conv2 = Conversation(title="conv2", summary="Presupuesto: $20,000")
 
         mock_repo = AsyncMock()
@@ -194,7 +194,7 @@ class TestContextManagerSummaries:
         )
         conv_other = Conversation(
             title="other",
-            summary="Vehículos: Toyota",
+            summary="VehÃ­culos: Toyota",
             id="conv-other-456",
         )
 
@@ -304,3 +304,4 @@ class TestContextManagerSummaries:
         ]
         _ctx, context_block = await mgr.build_context(messages)
         assert "Conversaciones anteriores" not in context_block
+

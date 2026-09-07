@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from unittest.mock import AsyncMock, MagicMock
 
@@ -12,7 +12,7 @@ from app.domain.agent.registry import CapabilityRegistry
 from app.domain.models.message import Message, MessageRole
 
 # ---------------------------------------------------------------------------
-# Subfase 5.6 — DiagnosisCapability: automotive data in prompts
+# Subfase 5.6 â€” DiagnosisCapability: automotive data in prompts
 # ---------------------------------------------------------------------------
 
 class TestDiagnosisAutomotiveDataPrompt:
@@ -24,7 +24,7 @@ class TestDiagnosisAutomotiveDataPrompt:
             vehicles_count=1,
         )
         result = cap.get_system_prompt_enhancement(ctx)
-        assert "DATOS AUTOMOTRICES REALES DEL VEHÍCULO" in result
+        assert "DATOS AUTOMOTRICES REALES DEL VEHÃCULO" in result
         assert "[VEHICLE_DETAILS]" in result
         assert "Toyota Corolla 2020" in result
 
@@ -33,7 +33,7 @@ class TestDiagnosisAutomotiveDataPrompt:
         ctx = CapabilityContext(user_message="mi auto hace ruido")
         result = cap.get_system_prompt_enhancement(ctx)
         assert "DATOS AUTOMOTRICES" not in result
-        assert "Modo Diagnóstico" in result
+        assert "Modo DiagnÃ³stico" in result
 
     def test_anti_hallucination_rules_with_data(self) -> None:
         cap = DiagnosisCapability()
@@ -69,7 +69,7 @@ class TestDiagnosisContextEnrichment:
         cap = DiagnosisCapability()
         ctx = CapabilityContext(user_message="mi auto falla")
         result = cap.get_context_enrichment(ctx)
-        assert "datos reales del vehículo" not in result.lower()
+        assert "datos reales del vehÃ­culo" not in result.lower()
 
     def test_vehicle_info_already_provided(self) -> None:
         cap = DiagnosisCapability()
@@ -78,7 +78,7 @@ class TestDiagnosisContextEnrichment:
             vehicles_count=1,
         )
         result = cap.get_context_enrichment(ctx)
-        assert "ya proporcionó información del vehículo" in result
+        assert "ya proporcionÃ³ informaciÃ³n del vehÃ­culo" in result
 
     def test_no_vehicle_info_prompt_when_count_zero(self) -> None:
         cap = DiagnosisCapability()
@@ -87,7 +87,7 @@ class TestDiagnosisContextEnrichment:
             vehicles_count=0,
         )
         result = cap.get_context_enrichment(ctx)
-        assert "ya proporcionó información" not in result
+        assert "ya proporcionÃ³ informaciÃ³n" not in result
 
     def test_symptoms_already_described(self) -> None:
         cap = DiagnosisCapability()
@@ -97,7 +97,7 @@ class TestDiagnosisContextEnrichment:
             has_symptoms=True,
         )
         result = cap.get_context_enrichment(ctx)
-        assert "ya describió síntomas" in result
+        assert "ya describiÃ³ sÃ­ntomas" in result
 
     def test_no_symptoms_prompt_when_none(self) -> None:
         cap = DiagnosisCapability()
@@ -107,7 +107,7 @@ class TestDiagnosisContextEnrichment:
             has_symptoms=False,
         )
         result = cap.get_context_enrichment(ctx)
-        assert "ya describió síntomas" not in result
+        assert "ya describiÃ³ sÃ­ntomas" not in result
 
     def test_always_recommends_mechanic(self) -> None:
         cap = DiagnosisCapability()
@@ -118,7 +118,7 @@ class TestDiagnosisContextEnrichment:
             has_symptoms=True,
         )
         result = cap.get_context_enrichment(ctx)
-        assert "mecánico" in result.lower()
+        assert "mecÃ¡nico" in result.lower()
 
     def test_followup_when_no_vehicle(self) -> None:
         cap = DiagnosisCapability()
@@ -132,7 +132,7 @@ class TestDiagnosisContextEnrichment:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.6 — Orchestrator: diagnosis with automotive data
+# Subfase 5.6 â€” Orchestrator: diagnosis with automotive data
 # ---------------------------------------------------------------------------
 
 def _orchestrator_with_tool(
@@ -183,4 +183,5 @@ class TestOrchestratorDiagnosisData:
         )
         assert result.intent == Intent.DIAGNOSIS
         assert "DATOS AUTOMOTRICES" not in result.system_prompt
-        assert "Modo Diagnóstico" in result.system_prompt
+        assert "Modo DiagnÃ³stico" in result.system_prompt
+
