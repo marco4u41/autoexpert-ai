@@ -1,4 +1,4 @@
-# Python
+﻿# Python
 __pycache__/
 *.py[cod]
 *$py.class
@@ -14,14 +14,16 @@ env/
 
 # Environment
 .env
+*.env.local
 
 # Database
 *.db
 *.sqlite3
 
-# Node
+# Node & Frontend
 node_modules/
 frontend/dist/
+*.tsbuildinfo
 
 # IDE
 .vscode/
