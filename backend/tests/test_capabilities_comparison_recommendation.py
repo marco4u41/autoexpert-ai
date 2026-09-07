@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from unittest.mock import MagicMock
 
@@ -13,7 +13,7 @@ from app.domain.agent.registry import CapabilityRegistry
 from app.domain.models.message import Message, MessageRole
 
 # ---------------------------------------------------------------------------
-# Subfase 5.4 â€” RecommendationCapability: usage-aware prompts
+# RecommendationCapability: usage-aware prompts
 # ---------------------------------------------------------------------------
 
 class TestRecommendationUsageGuidance:
@@ -25,7 +25,7 @@ class TestRecommendationUsageGuidance:
             usage="urbano",
         )
         result = cap.get_system_prompt_enhancement(ctx)
-        assert "ORIENTACIÃ“N DE USO" in result
+        assert "ORIENTACIÓN DE USO" in result
         assert "urbano" in result.lower()
         assert "sedan" in result.lower() or "hatchback" in result.lower()
 
@@ -36,20 +36,20 @@ class TestRecommendationUsageGuidance:
             usage="familiar",
         )
         result = cap.get_system_prompt_enhancement(ctx)
-        assert "ORIENTACIÃ“N DE USO" in result
+        assert "ORIENTACIÓN DE USO" in result
         assert "SUV" in result
 
     def test_no_usage_guidance_when_empty(self) -> None:
         cap = RecommendationCapability()
         ctx = CapabilityContext(user_message="hola")
         result = cap.get_system_prompt_enhancement(ctx)
-        assert "ORIENTACIÃ“N DE USO" not in result
+        assert "ORIENTACIÓN DE USO" not in result
 
     def test_automotive_data_emphasized_as_primary_source(self) -> None:
         cap = RecommendationCapability()
         ctx = CapabilityContext(
             user_message="necesito un auto",
-            automotive_data="[VEHICLE_SEARCH]\n3 vehÃ­culos",
+            automotive_data="[VEHICLE_SEARCH]\n3 vehículos",
             budget=25000.0,
         )
         result = cap.get_system_prompt_enhancement(ctx)
@@ -123,7 +123,7 @@ class TestRecommendationFollowupWithUsage:
 
 
 # ---------------------------------------------------------------------------
-# Subfase 5.5 â€” ComparisonCapability: focus-aware prompts
+# ComparisonCapability: focus-aware prompts
 # ---------------------------------------------------------------------------
 
 class TestComparisonFocusGuidance:
@@ -147,7 +147,7 @@ class TestComparisonFocusGuidance:
             focus="economy",
         )
         result = cap.get_system_prompt_enhancement(ctx)
-        assert "ENFOQUE EN ECONOMÃA" in result
+        assert "ENFOQUE EN ECONOMÍA" in result
         assert "consumo" in result.lower()
 
     def test_includes_focus_guidance_when_safety(self) -> None:
@@ -168,7 +168,7 @@ class TestComparisonFocusGuidance:
             focus="value",
         )
         result = cap.get_system_prompt_enhancement(ctx)
-        assert "ENFOQUE EN RELACIÃ“N PRECIO-VALOR" in result
+        assert "ENFOQUE EN RELACIÓN PRECIO-VALOR" in result
 
     def test_no_focus_guidance_when_all(self) -> None:
         cap = ComparisonCapability()
@@ -212,7 +212,7 @@ class TestComparisonContextEnrichment:
             focus="economy",
         )
         result = cap.get_context_enrichment(ctx)
-        assert "economÃ­a" in result.lower()
+        assert "economía" in result.lower()
 
     def test_no_focus_enrichment_when_all(self) -> None:
         cap = ComparisonCapability()
@@ -241,7 +241,7 @@ class TestComparisonContextEnrichment:
             vehicles_count=3,
         )
         result = cap.get_context_enrichment(ctx)
-        assert "3 vehÃ­culos" in result
+        assert "3 vehículos" in result
 
 
 # ---------------------------------------------------------------------------
@@ -294,7 +294,7 @@ class TestOrchestratorUsagePropagation:
             focus="economy",
         )
         assert result.intent == Intent.COMPARISON
-        assert "economÃ­a" in result.system_prompt.lower()
+        assert "economía" in result.system_prompt.lower()
 
 
 class TestOrchestratorCapabilityContextFields:

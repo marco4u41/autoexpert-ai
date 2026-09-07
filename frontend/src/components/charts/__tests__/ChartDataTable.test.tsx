@@ -55,7 +55,7 @@ describe("ChartDataTable", () => {
 
     await user.click(screen.getByText("Ver datos"));
     expect(screen.getByText("Precio")).toBeDefined();
-    expect(screen.getByText("45,000")).toBeDefined();
+    expect(screen.getByText((45000).toLocaleString())).toBeDefined();
   });
 
   it("has caption for screen readers", async () => {

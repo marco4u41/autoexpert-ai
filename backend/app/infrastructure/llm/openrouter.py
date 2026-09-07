@@ -23,7 +23,7 @@ class OpenRouterProvider(LLMProvider):
         fallback_models = [
             m for m in getattr(settings, "openrouter_fallback_models", []) if m != self._model
         ]
-        self._candidate_models = [self._model] + fallback_models
+        self._candidate_models = [self._model, *fallback_models]
         self._base_url = settings.openrouter_base_url
 
     def _build_headers(self) -> dict[str, str]:
@@ -108,11 +108,13 @@ class OpenRouterProvider(LLMProvider):
                         ) as stream_response:
                             if stream_response.status_code == 429:
                                 retry_after = int(
-                                    stream_response.headers.get("retry-after", str(_RETRY_BASE_DELAY)),
+                                    stream_response.headers.get(
+                                        "retry-after", str(_RETRY_BASE_DELAY)
+                                    ),
                                 )
                                 delay = min(retry_after, 30)
                                 logger.warning(
-                                    "Rate limited on stream with model %s (attempt %d/%d). Retrying in %ds...",
+                                    "Rate limited on stream model %s (attempt %d/%d). Wait %ds...",
                                     model,
                                     attempt + 1,
                                     _MAX_RETRIES,
@@ -125,9 +127,14 @@ class OpenRouterProvider(LLMProvider):
                                 body = await stream_response.aread()
                                 last_error = LLMProviderError(
                                     "openrouter",
-                                    f"HTTP {stream_response.status_code} on {model}: {body.decode()}",
+                                    f"HTTP {stream_response.status_code} on {model}: "
+                                    f"{body.decode()}",
                                 )
-                                logger.warning("Stream error on model %s: HTTP %d", model, stream_response.status_code)
+                                logger.warning(
+                                    "Stream error on model %s: HTTP %d",
+                                    model,
+                                    stream_response.status_code,
+                                )
                                 break
 
                             has_content = False
@@ -157,7 +164,10 @@ class OpenRouterProvider(LLMProvider):
 
             logger.info("Failing over from model %s to next candidate if available...", model)
 
-        raise LLMProviderError("openrouter", f"All candidate models exhausted. Last error: {last_error}")
+        raise LLMProviderError(
+            "openrouter",
+            f"All candidate models exhausted. Last error: {last_error}",
+        )
 
     async def chat(
         self,
@@ -184,4 +194,7 @@ class OpenRouterProvider(LLMProvider):
                     last_error = exc
                     logger.warning("Model %s failed in chat, trying fallback: %s", model, exc)
 
-        raise LLMProviderError("openrouter", f"All candidate models exhausted. Last error: {last_error}")
+        raise LLMProviderError(
+            "openrouter",
+            f"All candidate models exhausted. Last error: {last_error}",
+        )
