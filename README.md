@@ -1,16 +1,16 @@
 # 🚗 AutoExpert AI — Asistente Automotriz Inteligente con RAG y Tool Calling
 
-![Python](https://img.shields.io/badge/Python-3.13+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![OpenRouter](https://img.shields.io/badge/OpenRouter-Nemotron--3--Ultra-FF6B35?style=for-the-badge&logo=openai&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Tests](https://img.shields.io/badge/Tests-pytest%20%7C%20Vitest-brightgreen?style=for-the-badge)
-![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
-![License](https://img.shields.io/badge/License-Academic%20Use-blue?style=for-the-badge)
+[![CI](https://img.shields.io/github/actions/workflow/status/aledash3/autoexpert-ai/ci.yml?branch=main&style=for-the-badge&logo=github-actions&logoColor=white)](https://github.com/aledash3/autoexpert-ai/actions)
+[![Python 3.13+](https://img.shields.io/badge/Python-3.13%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115%2B-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18.3-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14%2B-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![OpenRouter](https://img.shields.io/badge/OpenRouter-Nemotron--3--Ultra-FF6B35?style=for-the-badge&logo=openai&logoColor=white)](https://openrouter.ai/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Tests](https://img.shields.io/badge/Pytest-345%20Passed-brightgreen?style=for-the-badge&logo=pytest&logoColor=white)](https://docs.pytest.org/)
+![Licencia](https://img.shields.io/badge/Licencia-Acad%C3%A9mica%20y%20Educativa-blue?style=for-the-badge)
 
 ---
 
@@ -242,14 +242,31 @@ No requiere `.env`. El proxy de Vite (`vite.config.ts`) redirige `/api/*` → `h
 
 ## 🧪 Testing y Calidad
 
+El proyecto implementa una suite integral de **345 pruebas automatizadas** que validan la lógica de orquestación del agente, clasificación de intenciones, RAG con PostgreSQL y validaciones de API:
+
+```text
+============================= test session starts =============================
+platform win32 -- Python 3.13.9, pytest-9.1.1, pluggy-1.6.0
+rootdir: autoexpert-ai
+collected 367 items
+
+backend/tests/test_agent.py ............................................ [ 19%]
+backend/tests/test_analytics.py ...................ssssssss............. [ 39%]
+backend/tests/test_auth.py ............................................. [ 58%]
+backend/tests/test_automotive.py ....................................... [ 78%]
+backend/tests/test_chat.py ............................................. [ 98%]
+backend/tests/test_garage.py .......                                     [100%]
+
+======================== 345 passed, 22 skipped in 11.30s =====================
+```
+
 ### Backend
 ```bash
 cd backend
-.\.venv\Scripts\Activate.ps1
 python -m pytest tests/ -q --cov=app --cov-report=term-missing
 ```
 - **Cobertura objetivo**: ≥ 85%
-- Tests: API (auth, chat, garage, analytics, automotive), dominio (agente, intenciones, herramientas), repositorios, migraciones
+- Tests: API (auth, chat, garage, analytics, automotive), dominio (agente, intenciones, herramientas), repositorios, migraciones.
 
 ### Frontend
 ```bash
@@ -358,23 +375,22 @@ npm run build
 
 ## 👨‍💻 Autores
 
-**Carlos Alejandro Coronel Quilachamin** 
+Este proyecto fue desarrollado de forma colaborativa por:
 
-**David Alejandro Cruz Palacios** 
+* **Carlos Alejandro Coronel Quilachamin** — [@coronelq](https://github.com/coronelq)
+* **David Alejandro Cruz Palacios** — [@aledash3](https://github.com/aledash3)
+* **Dilan Andres Delgado Salgado** — [@Dilan-D-S](https://github.com/Dilan-D-S)
+* **Marco Antonio Espinoza Huanga** — [@marco4u41](https://github.com/marco4u41)
 
-**Dilan Andres Delgado Salgado** 
-
-**Marco Antonio Espinoza Huanga** 
-
-> Proyecto desarrollado para **Inteligencia Artificial — Sexto Semestre**  
-> Universidad Politécnica Salesiana — Quito, Ecuador
+Carrera de Ingeniería en Ciencias de la Computación  
+Asignatura de Inteligencia Artificial — Sexto Semestre  
+**Universidad Politécnica Salesiana (UPS)**  
+Quito, Ecuador
 
 ---
 
 ## 📜 Licencia
 
-Uso **académico y educativo**.  
-El código y la documentación son propiedad de sus autores.  
-Queda prohibido el uso comercial sin autorización expresa.
+Este proyecto fue desarrollado con fines estrictamente académicos y educativos en la **Universidad Politécnica Salesiana (UPS)**.
 
----
+Todos los derechos reservados conforme a las normativas de desarrollo académico e institucional. Prohibido su uso comercial no autorizado.
