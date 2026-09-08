@@ -383,7 +383,7 @@ Este proyecto fue desarrollado de forma colaborativa por:
 * **Marco Antonio Espinoza Huanga** — [@marco4u41](https://github.com/marco4u41)
 
 Carrera de Ingeniería en Ciencias de la Computación  
-Asignatura de Inteligencia Artificial — Sexto Semestre  
+Asignatura: **Inteligencia Artificial** (6to Semestre)  
 **Universidad Politécnica Salesiana (UPS)**  
 Quito, Ecuador
 
